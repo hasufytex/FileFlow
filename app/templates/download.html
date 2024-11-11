@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Download Files</title>
+</head>
+
+<body class="bg-gray-100 p-8">
+    <h1 class="text-3xl font-bold mb-4">Files Available for Download</h1>
+    <table class="min-w-full bg-white shadow-md rounded-lg">
+        <thead>
+            <tr class="bg-gray-200 text-gray-600 uppercase text-sm">
+                <th class="py-3 px-6 text-left">File Name</th>
+                <th class="py-3 px-6 text-left">Size</th>
+                <th class="py-3 px-6 text-left">Download</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for file in files %}
+            <tr class="border-b">
+                <td class="py-3 px-6">{{ file.name }}</td>
+                <td class="py-3 px-6">{{ (file.size / (1024 * 1024)) | round(2) }} MB</td>
+                <td class="py-3 px-6">
+                    <a href="{{ url_for('main.download_file', filename=file.name) }}"
+                        class="text-blue-500 hover:underline">Download</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="text-center mt-4">
+        <a href="/" class="text-blue-500 hover:underline">Back to Home</a>
+    </div>
+</body>
+
+</html>
