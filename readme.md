@@ -30,7 +30,7 @@ pip install -r requirements.txt
 ### 3. Run the Application
 
 ```bash
-python app.py
+python run.py
 ```
 
 By default, the app will run on http://127.0.0.1:8000/
