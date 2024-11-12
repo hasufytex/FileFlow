@@ -23,6 +23,11 @@ def download():
 def download_file(filename):
     return send_from_directory(current_app.config['DOWNLOAD_FOLDER'], filename, as_attachment=True)
 
+# Handle file download for uploads
+@main.route('/downloadUP/<filename>')
+def downloadUP_file(filename):
+    return send_from_directory(current_app.config['UPLOAD_FOLDER'], filename, as_attachment=True)
+
 # Upload form
 @main.route('/upload')
 def upload_form():
@@ -44,6 +49,8 @@ def upload_file():
 def list_all_files():
     upload_folder = current_app.config['UPLOAD_FOLDER']
     download_folder = current_app.config['DOWNLOAD_FOLDER']
+
+    print(upload_folder)
 
     upload_files = [
         {"name": file, "size": os.path.getsize(os.path.join(upload_folder, file))}

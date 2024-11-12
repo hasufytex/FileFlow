@@ -27,7 +27,7 @@
                     <td class="py-3 px-6">{{ file.name }}</td>
                     <td class="py-3 px-6">{{ (file.size / (1024 * 1024)) | round(2) }} MB</td>
                     <td class="py-3 px-6">
-                        <a href="{{ url_for('main.download_file', filename=file.name) }}"
+                        <a href="{{ url_for('main.downloadUP_file', filename=file.name) }}"
                             class="text-blue-500 hover:underline">Download</a>
                     </td>
                 </tr>
