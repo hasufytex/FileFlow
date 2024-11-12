@@ -4,9 +4,9 @@ import os
 def create_app():
     app = Flask(__name__)
 
-    # Configuration settings
-    app.config['UPLOAD_FOLDER'] = os.path.join('instance', 'uploads')
-    app.config['DOWNLOAD_FOLDER'] = os.path.join('instance', 'downloads')
+    # Configuration settings with absolute paths
+    app.config['UPLOAD_FOLDER'] = os.path.join(app.root_path, 'instance', 'uploads')
+    app.config['DOWNLOAD_FOLDER'] = os.path.join(app.root_path, 'instance', 'downloads')
 
     # Create directories if they don't exist
     os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
