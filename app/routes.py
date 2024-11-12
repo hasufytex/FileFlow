@@ -21,7 +21,7 @@ def download():
 # Handle file download
 @main.route('/download/<filename>')
 def download_file(filename):
-    return send_from_directory(current_app.config['DOWNLOAD_FOLDER'], filename)
+    return send_from_directory(current_app.config['DOWNLOAD_FOLDER'], filename, as_attachment=True)
 
 # Upload form
 @main.route('/upload')
